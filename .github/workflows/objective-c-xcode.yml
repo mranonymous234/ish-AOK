@@ -1,0 +1,40 @@
+            - name: iOS Build/Release With Multiple Targets Action
+  # You may pin to the exact commit or the version.
+  # uses: kumarsunil0007/build-ios-action@99b795bcaccbb8b6748bb8fbd503b4c337bb2c2a
+  uses: kumarsunil0007/build-ios-action@latest
+  with:
+    # Project path
+    project-path: 
+    # Base64 encoded p12 file (key + cert)
+    p12-base64: 
+    # Base64 encoded mobileprovision file
+    mobileprovision-base64: 
+    # For example, iOS Distribution
+    code-signing-identity: 
+    # Team id
+    team-id: 
+    # Workspace path
+    workspace-path: # optional, default is 
+    # Options app-store, ad-hoc, package, enterprise, development, or developer-id
+    export-method: # optional, default is development
+    # For example, Debug, Release
+    configuration: # optional, default is Release
+    # Certificate password
+    certificate-password: # optional, default is 
+    # Output path of ipa
+    output-path: # optional, default is output.ipa
+    # Scheme
+    scheme: # optional, default is 
+    # Targets to disable automatic code signing. Input targets separated by ,. For example, 'MyApp,YourApp'.
+    disable-targets: # optional, default is 
+    # Boolean to tell if `pod install` should be run during build.
+    build-pods: # optional
+    # The path to the Podfile.
+    pods-path: # optional, default is Podfile
+    # Boolean to tell if app is using any extra mobileprovision, e.g. for any share extension or widget.
+    extra-provisioning-profile: # optional
+    # Base64 encoded mobileprovision file, for signing of other targets
+    mobileprovision-base64-extra: # optional
+    # value can be used to only update code signing for the specified targets, e.g. '.*WatchKit App.*','.*Share Extension.*' etc.
+    target-type-filter: # optional, default is .*Share Extension.*
+          

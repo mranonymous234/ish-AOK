@@ -1,0 +1,33 @@
+name: Build iSH‑AOK IPA (Unsigned)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Install ldid
+        run: brew install ldid
+
+      - name: Build with xcodebuild
+        run: |
+          xcodebuild -scheme iSH -configuration Release -sdk iphoneos -derivedDataPath build
+
+      - name: Package .app into .ipa
+        run: |
+          mkdir Payload
+          cp -r build/Build/Products/Release-iphoneos/iSH.app Payload/
+          zip -r iSH‑AOK.ipa Payload
+
+      - name: Upload .ipa artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: iSH‑AOK
+          path: iSH‑AOK.ipa

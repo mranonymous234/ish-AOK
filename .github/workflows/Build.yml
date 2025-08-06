@@ -27,7 +27,7 @@ jobs:
           zip -r iSH‑AOK.ipa Payload
 
       - name: Upload .ipa artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: iSH‑AOK
           path: iSH‑AOK.ipa
